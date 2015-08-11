@@ -1,0 +1,124 @@
+# conky.conf - Configurated by Sataniac. Used on Gentoo Linux.
+# If you have any questions please ask: sataniac@freemail.hu
+
+# --- Window Layout & Options --- #
+background		no
+own_window 		no
+own_window_type         desktop
+own_window_class        conky
+no_buffers yes
+double_buffer 		yes
+use_spacer 		left
+use_xft 		yes
+alignment 		top_left
+gap_x 			0
+gap_y 			22
+use_spacer 		left
+
+# --- Colours, Sizes, Fonts & Margins --- #
+minimum_size 		1280
+stippled_borders 	0
+border_width 		0
+default_color 		grey
+color0 			FFFFFF
+
+# --- Text --- #
+draw_outline 		yes
+draw_borders 		no
+font 			urw_gothic_l:size=8
+format_human_readable 	yes
+uppercase 		no
+use_spacer none
+draw_shades 		no
+out_to_console no
+out_to_stderr no
+
+# --- Samples --- #
+cpu_avg_samples 	10
+update_interval 	1
+music_player_interval 	10
+net_avg_samples 	10
+ 
+TEXT
+${goto 60}${font reskagraf:size=15}${color0}MPD${color}${font}
+                 ${mpd_elapsed} / ${mpd_length}${goto 187 }
+   ${mpd_bar 4, 160} ${goto 187 }
+   ${font urw_gothic_l:size=8:weight=bold}Artist:${font} ${goto 70}${mpd_artist} 
+   ${font urw_gothic_l:size=8:weight=bold}Album:${font} ${goto 70}${mpd_album}
+   ${font urw_gothic_l:size=8:weight=bold}Title:${font} ${goto 70}${mpd_title}
+   ${font urw_gothic_l:size=8:weight=bold}Length:${font} ${goto 70}${mpd_length}
+
+${voffset 10}
+${goto 210}${font reskagraf:size=15}${color0}Top${color}${font}
+${goto 90}${font urw_gothic_l:size=8:weight=bold}${goto 120}Name${goto 230}PID${goto 290}CPU${goto 335}Mem${font}
+${goto 90}${font urw_gothic_l:size=8:weight=bold}1.${font} ${goto 120}${top name 1}${goto 230}${top pid 1}${goto 290}${top cpu 1}${goto 335}${top mem 1}
+${goto 90}${font urw_gothic_l:size=8:weight=bold}2.${font} ${goto 120}${top name 2}${goto 230}${top pid 2}${goto 290}${top cpu 2}${goto 335}${top mem 2}
+${goto 90}${font urw_gothic_l:size=8:weight=bold}3.${font} ${goto 120}${top name 3}${goto 230}${top pid 3}${goto 290}${top cpu 3}${goto 335}${top mem 3}
+${goto 90}${font urw_gothic_l:size=8:weight=bold}4.${font} ${goto 120}${top name 4}${goto 230}${top pid 4}${goto 290}${top cpu 4}${goto 335}${top mem 4}
+${goto 90}${font urw_gothic_l:size=8:weight=bold}5.${font} ${goto 120}${top name 5}${goto 230}${top pid 5}${goto 290}${top cpu 5}${goto 335}${top mem 5}
+
+${voffset 40}
+${goto 215}${font reskagraf:size=15}${color0}CPU${color}${font}
+${goto 122}${font urw_gothic_l:size=8:weight=bold}Core 1:${font} ${goto 200}${freq 1} ${goto 235}MHz${goto 295}${cpu cpu1} ${goto 311}% 
+${goto 122} ${goto 200 }${cpubar cpu1 8,120}  ${goto 290} 
+${goto 122}${font urw_gothic_l:size=8:weight=bold}Core 2:${font}${goto 200}${freq 2}${goto 235}MHz   ${goto 295}${cpu cpu2} ${goto 311}% 
+${goto 122}${goto 200 }${cpubar cpu2 8,120}  ${goto 290}
+${goto 122}${font urw_gothic_l:size=8:weight=bold}Load:${font} ${goto 200}${cpugraph cpu0 20,120 000000 FFFFFF}
+
+${voffset 140}
+${goto 450}${font reskagraf:size=15}${color0}WIFI${color}${font}#
+${if_existing /proc/net/route wlp3s0} 
+${goto 380} ${font urw_gothic_l:size=8:weight=bold}IP:${font} ${goto 490}${addr wlp3s0} 
+${goto 380} ${font urw_gothic_l:size=8:weight=bold}Network:${font} ${goto 490}${wireless_essid wlp3s0} 
+${goto 380} ${font urw_gothic_l:size=8:weight=bold}Rate:${font} ${goto 490}${wireless_bitrate wlp3s0} 
+${goto 380} ${font urw_gothic_l:size=8:weight=bold}Quality:${font} ${goto 480}${wireless_link_qual_perc wlp3s0}% 
+${goto 380} ${font urw_gothic_l:size=8:weight=bold}Up:${font} ${goto 440}${upspeed wlp3s0}  ${goto 490}${upspeedgraph wlp3s0 8,101 000000 FFFFFF} 
+${goto 380} ${font urw_gothic_l:size=8:weight=bold}Down:${font} ${goto 440}${downspeed wlp3s0}  ${goto 490}${upspeedgraph wlp3s0 8,101 000000 FFFFFF} #
+${else} 
+
+
+${goto 360}  ${goto 440}Unavailable
+
+
+${endif}#
+${voffset -100}
+
+${goto 780}${font reskagraf:size=15}${color0}ETH0${color}${font}#
+${if_existing /proc/net/route enp3s4} 
+${goto 695} ${font urw_gothic_l:size=8:weight=bold}IP:${font} ${goto 805}${addr enp3s4} 
+${goto 695} ${font urw_gothic_l:size=8:weight=bold}Up:${font} ${goto 750}${upspeed enp7s0}  ${goto 805}${upspeedgraph enp7s0 8,101 000000 FFFFFF} 
+${goto 695} ${font urw_gothic_l:size=8:weight=bold}Down:${font} ${goto 750}${downspeed enp7s0}  ${goto 805}${downspeedgraph enp7s0 8,101 000000 FFFFFF} #
+${else} 
+
+${goto 775}Unavailable
+
+${endif}#
+
+${voffset -370}
+${goto 1135}${font reskagraf:size=15}${color0}Memory${color}${font}
+${goto 1070}${font urw_gothic_l:size=8:weight=bold}Usage:${font} ${goto 1150}${mem} ${goto 1240} ${memperc}% 
+${goto 1150}${membar 8,120} 
+${goto 1070}${font urw_gothic_l:size=8:weight=bold}Tmpfs:${font} ${goto 1150}${fs_used /var/tmp/portage} ${goto 1240} ${fs_used_perc /var/tmp/portage}% 
+${goto 1150}${fs_bar 10,120 /var/tmp/portage/}
+${goto 1070}${font urw_gothic_l:size=8:weight=bold}History:${font} ${goto 1150}${memgraph 20,120 000000 FFFFFF}
+
+${voffset 100}
+${goto 1065}${font reskagraf:size=15}${color0}HDD${color}${font}
+${goto 1000}${font urw_gothic_l:size=8:weight=bold}Root:${font}#
+${goto 1075}${fs_size /} / ${fs_free /}
+${goto 1050}${fs_free_perc /}% ${goto 1080}${fs_bar 8,100 /}
+${goto 1000}${font urw_gothic_l:size=8:weight=bold}Home:${font}#
+${goto 1075}${fs_size /home} / ${fs_free /home}
+${goto 1050}${fs_free_perc /home}% ${goto 1080}${fs_bar 8,100 /home}
+${goto 1000}${font urw_gothic_l:size=8:weight=bold}Videos:${font}#
+#${goto 1075}${fs_size /home/lorand/Videók} / ${fs_free /home/lorand/Videók}
+#${goto 1050}${fs_free_perc /home/lorand/Videók}% ${goto 1080}${fs_bar 8,100 /home/lorand/Videók}
+
+${voffset -230}
+${goto 70}${font reskagraf:size=15}${color0}RSS${color}${font}
+${font sans:size=8}${color red}Linux中国:$color${rss http://linux.cn/rss.xml 5 item_titles 6}${font}#
+
+#${font sans:size=8}${color red}Linux公社:$color${rss http://www.linuxidc.com/rssFeed.aspx 5 item_titles 6}${font}#
+
+#${font sans:size=8}${color red}Linux伊甸园:$color${rss http://www.linuxeden.com/rss.php 5 item_titles 6}${font}#
+

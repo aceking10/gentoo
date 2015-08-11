@@ -1,0 +1,14 @@
+www-client/firefox-bin ~x86
+x11-wm/awesome ~x86
+x11-wm/openbox ~x86
+x11-misc/apwal ~x86
+app-office/calcurse ~x86
+app-office/wps-office ~x86
+net-misc/utelnetd ~x86
+media-gfx/feh ~x86
+media-gfx/scrot ~x86
+net-dialup/minicom ~x86
+x11-terms/tilda ~x86
+x11-terms/sakura ~x86
+
+

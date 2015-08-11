@@ -1,0 +1,6 @@
+x11-base/xorg-server udev
+app-i18n/fcitx gtk gtk3 qt4
+www-plugins/adobe-flash sse2
+app-admin/conky apcupsd curl iostats mpd rss truetype wifi
+sys-apps/util-linux tty-helpers
+

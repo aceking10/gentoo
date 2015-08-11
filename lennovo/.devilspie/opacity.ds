@@ -1,0 +1,8 @@
+( if
+  ( or
+    ( contains ( application_name ) "sakura" )
+  )
+  ( begin
+    ( spawn_async (str "transset -t -i" (window_xid) ))
+  )
+  )

@@ -1,0 +1,8 @@
+www-client/firefox-bin ~x86
+x11-wm/awesome ~x86
+x11-wm/openbox ~x86
+x11-misc/apwal ~x86
+app-office/calcurse ~x86
+# required by wps-office (argument)
+=app-office/wps-office-9.1.0.4953_alpha18-r1 ~x86
+net-misc/utelnetd ~x86
